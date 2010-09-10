@@ -1,6 +1,6 @@
 = business_days
 
-Business Days is a sort-of extension to ActiveSupport to allow adding business days to time objects.
+Business Days is a sort-of extension to ActiveSupport to allow adding business days to time objects. 
 
 == Installation
 
@@ -29,3 +29,10 @@ Or add it to your Gemfile.
     (Time.parse("Friday") - 1.business_day).strftime("%A")
     # => "Thursday" 
 
+== Current Limitations
+
+* Holidays are completely ignored.
+
+* Time.now + 123512.business_days is done iteratively, even though it would be fairly straightforward to add (5/7 * n) + or - some small number based on where in the week you started.
+
+* saturday or sunday + 0.business_days is Monday. There are strong arguments both ways for making this result either monday or saturday. I think Monday is the more helpful. Write me hatemail if you disagree.
