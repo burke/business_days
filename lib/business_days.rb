@@ -1,5 +1,6 @@
 require 'active_support/all'
 require File.join(File.dirname(__FILE__),'business_days','time')
+require File.join(File.dirname(__FILE__),'business_days','date')
 
 module BusinessDays
   
