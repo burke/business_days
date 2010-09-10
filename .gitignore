@@ -9,3 +9,5 @@ pkg
 *.o
 Makefile
 *.gemspec
+*.gem
+
