@@ -1,0 +1,11 @@
+*.sw?
+.DS_Store
+coverage
+rdoc
+pkg
+*.bundle
+*.so
+*.dll
+*.o
+Makefile
+*.gemspec
