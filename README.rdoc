@@ -1,0 +1,31 @@
+= business_days
+
+Business Days is a sort-of extension to ActiveSupport to allow adding business days to time objects.
+
+== Installation
+
+Add a config.gem line (rails 2.3)
+
+    config.gem 'business_days'
+
+Or add it to your Gemfile.
+
+   gem 'business_days'
+
+== Examples
+
+    (Time.parse("Friday") + 1.business_day).strftime("%A")
+    # => "Monday"
+
+    (Time.parse("Friday") + 2.business_days).strftime("%A")
+    # => "Tuesday"
+
+    (Time.parse("Saturday") + 1.business_day).strftime("%A")
+    # => "Tuesday"
+
+    (Time.parse("Saturday") + 0.business_days).strftime("%A")
+    # => "Monday" 
+
+    (Time.parse("Friday") - 1.business_day).strftime("%A")
+    # => "Thursday" 
+
