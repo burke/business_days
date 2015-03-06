@@ -12,6 +12,6 @@ module BusinessDays
 
 end
 
-require 'ext/time'
-require 'ext/date'
-require 'ext/numeric'
+require 'core_ext/time'
+require 'core_ext/date'
+require 'core_ext/numeric'
