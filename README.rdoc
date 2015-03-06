@@ -29,9 +29,21 @@ Or add it to your Gemfile.
     (Time.parse("Friday") - 1.business_day).strftime("%A")
     # => "Thursday" 
 
-== Current Limitations
+== Holidays
 
-* Holidays are completely ignored.
+Holidays can be configured by passing in dates:
+
+    BusinessDays::Config.holidays = Date.parse("2015-01-01")
+
+You'll probably want to combine this with the holidays[https://github.com/alexdunae/holidays] gem and put in to an initializer:
+
+    # config/initializers/business_days.rb
+
+    BusinessDays::Config.holidays = Holidays.between(Date.today, 1.year.from_now, :us).map do |holiday|
+      holiday[:date]
+    end
+
+== Current Limitations
 
 * Time.now + 123512.business_days is done iteratively, even though it would be fairly straightforward to add (5/7 * n) + or - some small number based on where in the week you started.
 
